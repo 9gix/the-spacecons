@@ -1,0 +1,9 @@
+django>=1.5
+south>=0.7.6
+django-extensions>=1.1.1
+ipython>=0.13.1
+ipdb>=0.7
+django-debug-toolbar>=0.9.4
+PIL>=1.1.7
+django-imagekit>=2.0.2
+django-grappelli>=2.4.4

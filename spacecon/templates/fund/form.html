@@ -1,0 +1,10 @@
+{% extends 'proj/base.html' %}
+
+{% block main %}
+<form action='' method='POST'>
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type='submit' class='btn'>Fund it</button>
+</form>
+
+{% endblock %}

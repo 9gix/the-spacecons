@@ -1,0 +1,21 @@
+{% extends 'proj/base.html' %}
+{% block main %}
+<div class='container'>
+  <div class='hero-content'>
+    <div class='row-fluid'>
+    {% for project in object_list %}
+        <div class='span3'>
+          <h2><a href='{{ project.get_absolute_url }}'>{{ project.name }}</a></h2>
+          <img src='{{ project.photo_set.all.0.thumbnail.url }}' />
+          {{ project.description|linebreaks }}
+          [Budget Required: $ {{ project.budget }}]
+          <div class='progress progress-striped active'>
+            <div class='bar bar-success' style='width: {{ project.progress }}%'>
+            $ {{ project.total_fund }}</div>
+          </div>
+        </div>
+    {% endfor %}
+    </div>
+  </div>
+</div>
+{% endblock %}
