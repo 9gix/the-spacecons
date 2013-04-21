@@ -17,8 +17,10 @@
             <h3>{{ project.name }}</h3>
             <img src='{{ project.photo_set.all.0.thumbnail.url }}' />
             <div class='caption'>
-              {{ project.description|linebreaks }}
-              [Budget Required: $ {{ project.budget }}]
+              {{ project.description|linebreaks|truncatewords:25 }}
+              <p>
+              Budget Required: $ {{ project.budget }}
+              </p>
               <div class='progress progress-striped active'>
                 <div class='bar bar-success' style='width: {{ project.progress }}%'>
                   $ {{ project.total_fund }}
