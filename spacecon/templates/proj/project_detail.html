@@ -1,0 +1,47 @@
+{% extends "proj/base.html" %}
+{% load staticfiles %}
+{% block style %}
+  {{ block.super }}
+  <link href='{% static 'css/project_detail.css' %}' rel='stylesheet' />
+{% endblock %}
+
+{% block script %}
+  {{ block.super }}
+  <script src="{% static 'bootstrap/js/bootstrap-carousel.js' %}"></script>
+{% endblock %}
+
+{% block main %}
+<div class='container'>
+  <div class='hero-content span8'>
+    <h1>{{ object.name }}</h1>
+    <div id="photoCarousel" class="carousel slide">
+      <ol class="carousel-indicators">
+        {% for i in object.photo_set.all %}
+        <li data-target="#photoCarousel" 
+            data-slide-to="{{ forloop.counter0 }}" 
+            {% if forloop.first %} class="active"{% endif %}>
+        </li>
+        {% endfor %}
+      </ol>
+      <!-- Carousel items -->
+      <div class="carousel-inner">
+        {% for photo in object.photo_set.all %}
+        <div class="{% if forloop.first %}active {% endif %}item">
+          <img src="{{ photo.image.url }} ">
+        </div>
+        {% endfor %}
+      </div>
+      <!-- Carousel nav -->
+      <a class="carousel-control left" href="#photoCarousel" data-slide="prev">&lsaquo;</a>
+      <a class="carousel-control right" href="#photoCarousel" data-slide="next">&rsaquo;</a>
+    </div>
+    <div class='hero-unit'>
+      {{ object.description|linebreaks }}
+      [ Budget required: {{ object.budget }} ]
+      [ Funded: {{ object.total_fund }} ]
+    </div>
+    <a href='{% url "proj:fund:fund_form" object.slug %}' class='btn btn-primary'>Fund This Project</a>
+  </div>
+</div>
+
+{% endblock %}

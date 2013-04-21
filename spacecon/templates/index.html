@@ -1,0 +1,131 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block style %}
+    {{ block.super }}
+    <link href="{% static 'css/joyride-2.0.3.css' %}" rel="stylesheet">
+    <link href="{% static 'css/jquery.lightbox-0.5.css' %}" rel="stylesheet"> 
+{% endblock %}
+
+{% block script %}
+    {{ block.super }}
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="{% static 'js/jquery.scrollTo.min.js' %}"></script>
+    <script src="{% static 'js/jquery.localScroll.min.js' %}"></script>
+    <script src="{% static 'js/jquery.joyride-2.0.3.js' %}"></script>
+    <script src="{% static 'js/raphael-min.js' %}"></script>
+    <script src="{% static 'js/g.raphael-min.js' %}"></script>
+    <script src="{% static 'js/g.pie-min.js' %}"></script>
+    <script src="{% static 'js/jquery.lightbox-0.5.pack.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+    <!-- Carousel
+    ================================================== -->
+    <div id="myCarousel" class="carousel slide">
+      <div class="carousel-inner">
+        <div class="item active">
+          <img src="{% static 'img/slide-01.jpg' %}" alt="">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>Example headline.</h1>
+              <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+              <a class="btn btn-large btn-primary" href="#">Take a tour!</a>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <img src="{% static 'img/slide-02.jpg' %}" alt="">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>Another example headline.</h1>
+              <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+              <a class="btn btn-large btn-primary" href="#">Learn more</a>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <img src="{% static 'img/slide-03.jpg' %}" alt="">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>One more for good measure.</h1>
+              <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+              <a class="btn btn-large btn-primary" href="#">Browse the site</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+      <a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a>
+    </div><!-- /.carousel -->
+
+
+
+    <!-- Marketing messaging and featurettes
+    ================================================== -->
+    <!-- Wrap the rest of the page in another container to center all the content. -->
+
+    <div class="container marketing">
+
+      <!-- Three columns of text below the carousel -->
+      <div class="featurette" id="employment">
+        
+      </div>
+      <div class="featurette" id="budget">
+
+      </div>
+
+
+      <hr class="featurette-divider">
+
+      <div id="technology" class="featurette">
+        <h2 class="featurette-heading">First featurette headling. <span class="muted">It'll blow your mind.</span></h2>
+        <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+      </div>
+
+      <hr class="featurette-divider">
+
+      <div id="hope" class="featurette">
+      </div>
+      <div id="responsibility" class="featurette">
+        <a href="{% static 'img/comic-01.jpg' %}"><img src="{% static 'img/comic-01.jpg' %}" width="300" height="300" alt="" /></a>
+        <a href="{% static 'img/comic-02.jpg' %}"><img src="{% static 'img/comic-02.jpg' %}" width="300" height="300" alt="" /></a>
+        <a href="{% static 'img/comic-03.jpg' %}"><img src="{% static 'img/comic-03.jpg' %}" width="300" height="300" alt="" /></a>
+        <a href="{% static 'img/comic-04.jpg' %}"><img src="{% static 'img/comic-04.jpg' %}" width="300" height="300" alt="" /></a>
+        <a href="{% static 'img/comic-05.jpg' %}"><img src="{% static 'img/comic-05.jpg' %}" width="300" height="300" alt="" /></a>
+        <a href="{% static 'img/comic-06.jpg' %}"><img src="{% static 'img/comic-06.jpg' %}" width="300" height="300" alt="" /></a>
+        <a href="{% static 'img/comic-07.jpg' %}"><img src="{% static 'img/comic-07.jpg' %}" width="300" height="300" alt="" /></a>
+      </div>
+
+      <hr class="featurette-divider">
+
+      <!-- /END THE FEATURETTES -->
+
+
+      <!-- FOOTER -->
+      <footer>
+        <p class="pull-right"><a href="#">Back to top</a></p>
+        <p>&copy; 2013 The Spacecons &middot; <a href="http://www.github.com/ngzhian/the-spacecons">Source</a> &middot; <a href="#">Terms</a></p>
+      </footer>
+
+    </div><!-- /.container -->
+
+    <!-- Each tip is set within this <ol>.
+    This creates the order the tips are displayed -->
+    <ol id="joyRideTipContent">
+      <li data-id="employment" data-text="Next">
+        <p>This is the employment.</p>
+      </li>
+      <li data-id="technology" data-text="Next">
+        <p>This is the technology.</p>
+      </li>
+      <li data-id="hope" data-text="Close">
+        <p>This is the hope.</p>
+      </li>
+    </ol>
+{% endblock %}
+
+
