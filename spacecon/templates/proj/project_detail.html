@@ -35,10 +35,12 @@
       <a class="carousel-control left" href="#photoCarousel" data-slide="prev">&lsaquo;</a>
       <a class="carousel-control right" href="#photoCarousel" data-slide="next">&rsaquo;</a>
     </div>
-    {{ object.description|linebreaks }}
-    [ Budget required: {{ object.budget }} ]
-    [ Funded: {{ object.total_fund }} ]
-    <a href='{% url "proj:fund:fund_form" object.slug %}'>Fund This Project</a>
+    <div class='hero-unit'>
+      {{ object.description|linebreaks }}
+      [ Budget required: {{ object.budget }} ]
+      [ Funded: {{ object.total_fund }} ]
+    </div>
+    <a href='{% url "proj:fund:fund_form" object.slug %}' class='btn btn-primary'>Fund This Project</a>
   </div>
 </div>
 

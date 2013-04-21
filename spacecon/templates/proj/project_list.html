@@ -1,20 +1,37 @@
 {% extends 'proj/base.html' %}
+{% load staticfiles %}
+
+{% block style %}
+{{ block.super }}
+<link href="{% static 'css/proj.css' %}" rel='stylesheet' />
+{% endblock %}
+
 {% block main %}
 <div class='container'>
   <div class='hero-content'>
     <div class='row-fluid'>
-    {% for project in object_list %}
-        <div class='span3'>
-          <h2><a href='{{ project.get_absolute_url }}'>{{ project.name }}</a></h2>
-          <img src='{{ project.photo_set.all.0.thumbnail.url }}' />
-          {{ project.description|linebreaks }}
-          [Budget Required: $ {{ project.budget }}]
-          <div class='progress progress-striped active'>
-            <div class='bar bar-success' style='width: {{ project.progress }}%'>
-            $ {{ project.total_fund }}</div>
+      <ul class='thumbnails per4'>
+      {% for project in object_list %}
+        <li class='span3'>
+        <div class='thumbnail'>
+            <h3>{{ project.name }}</h3>
+            <img src='{{ project.photo_set.all.0.thumbnail.url }}' />
+            <div class='caption'>
+              {{ project.description|linebreaks }}
+              [Budget Required: $ {{ project.budget }}]
+              <div class='progress progress-striped active'>
+                <div class='bar bar-success' style='width: {{ project.progress }}%'>
+                  $ {{ project.total_fund }}
+                </div>
+              </div>
+              <p>
+              <a href='{{ project.get_absolute_url }}' class='btn-primary btn'>Vide Detail</a>
+              </p>
+            </div>
           </div>
-        </div>
-    {% endfor %}
+        </li>
+      {% endfor %}
+      </ul>
     </div>
   </div>
 </div>

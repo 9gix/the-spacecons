@@ -1,6 +1,7 @@
 {% extends 'proj/base.html' %}
 
 {% block main %}
+{{ block.super }}
 <form action='' method='POST'>
   {% csrf_token %}
   {{ form.as_p }}

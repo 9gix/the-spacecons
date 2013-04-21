@@ -9,7 +9,7 @@ class Photo(models.Model):
     position = models.PositiveSmallIntegerField(default=0)
     original = models.ImageField(upload_to='images')
     thumbnail = ImageSpecField([Adjust(contrast=1.2, sharpness=1.1),
-            ResizeToFit(100, 100)], image_field='original',
+            ResizeToFit(200, 200)], image_field='original',
             format='JPEG', options={'quality': 90})
     image = ImageSpecField([
             ResizeToFit(500, 500)], image_field='original',
