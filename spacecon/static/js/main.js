@@ -17,26 +17,53 @@ $(document).ready(function() {
 		});
 	});
 
-	var employment_paper = Raphael("employment", $('#employment').width(), 100);
 
-	var man_anim = Raphael.animation({y:30}, 1000)
-	for (i = 1; i <= 18; i++) {
-		var p = employment_paper.image('/static/img/small-man.gif');
-		p.attr({
-			x: i * 25,
-			y: 10,
-			width: 23,
-			height: 44
-		})
-		man_anim = man_anim.delay(500);
-		p.animate(man_anim);
+	var employment_paper = Raphael("employment", $('#employment').width(), 400);
+
+	var unemp_rates = [6.7, 3.5, 9.7, 7.5, 6, 9.6, 9.6, 8.9, 8.1];
+	var unemp_years = [1961, 1969, 1982, 1992, 2003, 2009, 2010, 2012];
+
+	for (i = 0; i < unemp_years.length; i++) {
+		employment_paper.text(20, 40 + 50 * i, unemp_years[i]).attr({font: "16px sans-serif"});
+		var j = 0;
+		for (; j < ~~unemp_rates[i]; j++) {
+			var p = employment_paper.image('/static/img/small-man.gif', 50 + j * 30, 10 + 50 * i, 23, 44);
+			p.hover(function() {
+				this.stop();
+		    	this.scale(1.3, 1.3, this.cx, this.cy);
+			}, function() {
+				this.animate({ transform: 's1 1 ' + this.cx + ' ' + this.cy }, 500, "bounce");
+			})
+		}
+		var scale = (unemp_rates[i] - ~~unemp_rates[i]);
+		var p = employment_paper.image('/static/img/small-man.gif', 50 + j * 30, 10 + 50 * i + (1-scale)*44, scale * 23, scale * 44);
 		p.hover(function() {
-			this.stop();
-	    	this.scale(1.3, 1.3, this.cx, this.cy);
-		}, function() {
-			this.animate({ transform: 's1 1 ' + this.cx + ' ' + this.cy }, 500, "bounce");
-		})
+				this.stop();
+		    	this.scale(1.3, 1.3, this.cx, this.cy);
+			}, function() {
+				this.animate({ transform: 's1 1 ' + this.cx + ' ' + this.cy }, 500, "bounce");
+			})
 	}
+
+
+
+	var bailout_paper = Raphael("bailout", $('#bailout').width(), 400);
+	var amnts = [37, 25, 1];
+	var x = 10, y = 250, w = 47, h = 25;
+	for (var i = 0; i < amnts.length; i++) {
+		var amount = amnts[i];
+		var yy = y, xx = x;
+		for (var j = 0; j < amount; j++) {
+			bailout_paper.image('/static/img/cash.jpg', xx + (w * ~~(j / 10)), yy - (h * ~~(j % 10)), w, h);
+		}
+		x += Math.ceil(amount/10) * w + 150;
+		y = 250;
+	}
+	bailout_paper.text(100, 300, "Bailout during Financial Crisis: $710bn").attr({font:"10px sans-serif"});
+	bailout_paper.text(460, 300, "NASA's funding since founded in 1958: $526bn").attr({font:"10px sans-serif"});
+	bailout_paper.text(700, 300, "NASA's funding in 2012: $18bn").attr({font:"10px sans-serif"});
+
+
 
 	var t = employment_paper.text(160, 90, "NASA recruits 18 000 employees").attr({font: "16px sans-serif"});
 
