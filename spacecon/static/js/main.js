@@ -65,7 +65,6 @@ $(document).ready(function() {
 
 
 
-	var t = employment_paper.text(160, 90, "NASA recruits 18 000 employees").attr({font: "16px sans-serif"});
 
 
 	var budget_pie = Raphael("budget", $('#budget').width(), 500) 
