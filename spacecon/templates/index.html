@@ -3,7 +3,6 @@
 
 {% block style %}
     {{ block.super }}
-    <link href="{% static 'css/main.css' %}" rel="stylesheet">
     <link href="{% static 'css/joyride-2.0.3.css' %}" rel="stylesheet">
 {% endblock %}
 
@@ -55,46 +54,6 @@
       <a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a>
       <a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a>
     </div><!-- /.carousel -->
-
- <!-- NAVBAR
-    ================================================== -->
-    <div class="navbar-wrapper" data-spy="affix" data-offset-top="200">
-      <!-- Wrap the .navbar in .container to center it within the absolutely positioned parent. -->
-      <div class="container">
-
-        <div class="navbar navbar-inverse">
-          <div class="navbar-inner">
-            <!-- Responsive Navbar Part 1: Button for triggering responsive navbar (not covered in tutorial). Include responsive CSS to utilize. -->
-            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <a class="brand" href="#">The Spacecons</a>
-            <!-- Responsive Navbar Part 2: Place all navbar contents you want collapsed withing .navbar-collapse.collapse. -->
-            <div class="nav-collapse collapse">
-              <ul class="nav">
-                <!-- Read about Bootstrap dropdowns at http://twitter.github.com/bootstrap/javascript.html#dropdowns -->
-                <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Economy<b class="caret"></b></a>
-                  <ul class="dropdown-menu">
-                    <li><a href="#employment">Employment</a></li>
-                    <li><a href="#technology">Technology</a></li>
-                  </ul>
-                </li>
-                <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Humanity<b class="caret"></b></a>
-                  <ul class="dropdown-menu">
-                    <li><a href="#hope">Hope</a></li>
-                </li>
-              </ul>
-            </div><!--/.nav-collapse -->
-          </div><!-- /.navbar-inner -->
-        </div><!-- /.navbar -->
-
-      </div> <!-- /.container -->
-    </div><!-- /.navbar-wrapper -->
-
 
     <!-- Marketing messaging and featurettes
     ================================================== -->

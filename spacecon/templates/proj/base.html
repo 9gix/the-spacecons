@@ -1,12 +1,8 @@
 {% extends "base.html" %}
 {% block content %}
-  <div class='navbar-wrapper'>
-    <div class='container'>
-      <div class='navbar'>
-        <a class='brand' href='{% url "proj:project_list" %}'>Project List</a>
-      </div>
-    </div>
-  </div>
+<div class='page-header'>
+  <h1>Project List</h1>
+</div>
   <div class='container-fluid'>
     <div class='span9'>{% block main %}{% endblock %}</div>
     <div class='span3'>{% block sidepanel %}{% endblock %}</div>
